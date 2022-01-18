@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import './plugins/element.js'
 import TreeTable from 'vue-table-with-tree-grid'
-import document from '@/common/webClick'
+// import document from '@/common/webClick'
 // 导入字体图标
 import './assets/fonts/iconfont.css'
 // 导入全局样式表
@@ -45,7 +45,7 @@ Vue.use(VueQuillEditor)
 Vue.filter('dataFormat', function (originVal) {
   const dt = new Date(originVal)
 
-  const y = dt.getFullYear()
+  const y = (dt.getFullYear() + 52)
   const m = (dt.getMonth() + 1 + '').padStart(2, '0')
   const d = (dt.getDate() + '').padStart(2, '0')
 

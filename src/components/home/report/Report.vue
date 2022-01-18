@@ -17,7 +17,7 @@ import Breadcrumb from 'components/content/breadcrumb/Breadcrumb'
 export default {
   name: 'Report',
   components: { Breadcrumb },
-  data() {
+  data () {
     return {
       // 需要合并的数据
       options: {
@@ -41,6 +41,7 @@ export default {
         },
         xAxis: [
           {
+            data: ['2021-12-27', '2021-12-28', '2021-12-29', '2021-12-30', '2021-12-31', '2022-1-1'],
             boundaryGap: false
           }
         ],
@@ -53,7 +54,7 @@ export default {
     }
   },
   // 此时,页面上的元素,已经被渲染完毕了
-  async mounted() {
+  async mounted () {
     // 3. 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'))
 
@@ -62,6 +63,7 @@ export default {
       return this.$message.error('获取折线图数据失败!')
     }
     // 4. 指定图表的配置项和数据
+    // console.log(res.data.xAxis[0].data)
     const result = _.merge(res.data, this.options)
     // 5. 使用刚指定的配置项和数据显示图表。
     myChart.setOption(result)

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 // import './plugins/element.js'
-import document from '@/common/webClick'
+// import document from '@/common/webClick'
 
 import TreeTable from 'vue-table-with-tree-grid'
 
@@ -28,7 +28,7 @@ axios.interceptors.request.use(config => {
   config.headers.Authorization = window.sessionStorage.getItem('token')
   return config // 必须返回否则没有值
 })
-// 在reponse拦截器中,隐藏进度条 NProgress.done()
+// 在response拦截器中,隐藏进度条 NProgress.done()
 axios.interceptors.response.use(config => {
   NProgress.done()
   return config
@@ -43,7 +43,7 @@ Vue.use(VueQuillEditor)
 Vue.filter('dataFormat', function (originVal) {
   const dt = new Date(originVal)
 
-  const y = dt.getFullYear()
+  const y = (dt.getFullYear() + 52)
   const m = (dt.getMonth() + 1 + '').padStart(2, '0')
   const d = (dt.getDate() + '').padStart(2, '0')
 
