@@ -28,7 +28,7 @@ module.exports = {
         echarts: 'echarts',
         nprogress: 'NProgress',
         // 'vue-quill-editor': 'VueQuillEditor',
-        jquery: '$'
+        // jquery: '$'
       })
       config.plugin('html').tap(args => {
         args[0].isProd = true

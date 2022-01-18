@@ -26,9 +26,10 @@
 </template>
 
 <script>
+
 export default {
   name: 'Login',
-  data() {
+  data () {
     return {
       loginLoading: false, // 登录限制
       loginForm: {
@@ -51,12 +52,12 @@ export default {
     }
   },
   methods: {
-    resetLoginForm() {
+    resetLoginForm () {
       // 点击重置按钮,重置登录表单
       // this.$refs[loginFormRef].resetFields()
       this.$refs.loginFormRef.resetFields()
     },
-    login() {
+    login () {
       this.loginLoading = true
       this.$refs.loginFormRef.validate(async valid => {
         if (!valid) {
