@@ -1,10 +1,22 @@
 <template>
   <div class="welcome">
-    <h2>
-      欢迎使用
-    </h2>
-    <p>欢迎使用本后台管理系统，本系统有用户管理，权限管理，商品管理，订单管理和数据统计等功能</p>
+    <h2>欢迎使用本系统 </h2>
+    <div id="wrap">
+      <div id="head">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -19,8 +31,142 @@ export default {
   font-size: 20px;
   text-align: center;
   color: #666;
-  p {
-    margin: 40px;
+  font-family: 'Courier New', Courier, monospace;
+}
+#wrap {
+  width: 300px;
+  height: 200px;
+  position: relative;
+  margin: 5% auto;
+  -webkit-perspective: 3000px;
+  -moz-perspective: 3000px;
+  -ms-transform: perspective(3000px);
+  -ms-perspective: 3000px;
+}
+#head {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+  -webkit-animation: rotate 15s linear 0s infinite;
+  -moz-transform-style: preserve-3d;
+  -moz-animation: rotate 15s linear 0s infinite;
+  -ms-transform-style: preserve-3d;
+  -ms-animation: rotate 25s linear 0s infinite;
+}
+#head div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 400px;
+  border: 1px solid #000;
+  text-align: center;
+  line-height: 100px;
+}
+#head div:nth-child(1) {
+  -webkit-transform: rotateY(0deg) translateZ(400px);
+  -moz-transform: rotateY(0deg) translateZ(400px);
+  -ms-transform: rotateY(0deg) translateZ(400px);
+  background: url(images/01.png);
+  background-size: cover;
+}
+#head div:nth-child(2) {
+  -webkit-transform: rotateY(36deg) translateZ(500px);
+  -moz-transform: rotateY(36deg) translateZ(500px);
+  -ms-transform: rotateY(36deg) translateZ(500px);
+  background: url(images/02.png);
+  background-size: cover;
+}
+
+#head div:nth-child(3) {
+  -webkit-transform: rotateY(72deg) translateZ(400px);
+  -moz-transform: rotateY(72deg) translateZ(400px);
+  -ms-transform: rotateY(72deg) translateZ(400px);
+  background: url(images/03.png);
+  background-size: cover;
+}
+
+#head div:nth-child(4) {
+  -webkit-transform: rotateY(108deg) translateZ(500px);
+  -moz-transform: rotateY(108deg) translateZ(500px);
+  -ms-transform: rotateY(108deg) translateZ(500px);
+  background: url(images/04.png);
+  background-size: cover;
+}
+#head div:nth-child(5) {
+  -webkit-transform: rotateY(144deg) translateZ(400px);
+  -moz-transform: rotateY(144deg) translateZ(400px);
+  -ms-transform: rotateY(144deg) translateZ(400px);
+  background: url(images/05.png);
+  background-size: cover;
+}
+#head div:nth-child(6) {
+  -webkit-transform: rotateY(180deg) translateZ(500px);
+  -moz-transform: rotateY(180deg) translateZ(500px);
+  -ms-transform: rotateY(180deg) translateZ(500px);
+  background: url(images/06.png);
+  background-size: cover;
+}
+#head div:nth-child(7) {
+  -webkit-transform: rotateY(216deg) translateZ(400px);
+  -moz-transform: rotateY(216deg) translateZ(400px);
+  -ms-transform: rotateY(216deg) translateZ(400px);
+  background: url(images/07.png);
+  background-size: cover;
+}
+#head div:nth-child(8) {
+  -webkit-transform: rotateY(252deg) translateZ(500px);
+  -moz-transform: rotateY(252deg) translateZ(500px);
+  -ms-transform: rotateY(252deg) translateZ(500px);
+  background: url(images/08.png);
+  background-size: cover;
+}
+#head div:nth-child(9) {
+  -webkit-transform: rotateY(288deg) translateZ(400px);
+  -moz-transform: rotateY(288deg) translateZ(400px);
+  -ms-transform: rotateY(288deg) translateZ(400px);
+  background: url(images/04.png);
+  background-size: cover;
+}
+#head div:nth-child(10) {
+  -webkit-transform: rotateY(324deg) translateZ(500px);
+  -moz-transform: rotateY(324deg) translateZ(500px);
+  -ms-transform: rotateY(324deg) translateZ(500px);
+  background: url(images/07.png);
+  background-size: cover;
+}
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotateX(5deg) rotateY(360deg);
+  }
+  50% {
+    transform: rotateX(-5deg) rotateY(180deg);
+  }
+  100% {
+    transform: rotateX(5deg) rotateY(0deg);
+  }
+}
+@-moz-keyframes rotate {
+  0% {
+    transform: rotateY(10deg) rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(-10deg) rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(10deg) rotateY(360deg);
+  }
+}
+@-ms-keyframes rotate {
+  0% {
+    transform: rotateY(10deg) rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(-10deg) rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(10deg) rotateY(360deg);
   }
 }
 </style>

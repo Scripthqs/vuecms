@@ -2,7 +2,7 @@
   <el-container class="home-container">
     <!-- 头部区域 -->
     <el-header>
-      <div>
+      <div @click="welcomeClick" class="home-welcome">
         <img src="~assets/manager.png" alt="" />
         <span>电商后台管理系统</span>
       </div>
@@ -63,22 +63,22 @@ export default {
         145: 'iconfont icon-baobiao'
       },
       isCollapse: false, // 是否折叠属性
-      activePath: '',
-      welcome: {
-        authName: '欢迎使用',
-        id: 147,
-        order: 1,
-        path: '/welcome',
-        children: [
-          {
-            authName: '使用说明',
-            id: 124,
-            order: 1,
-            path: 'welcome',
-            children: []
-          }
-        ]
-      }
+      activePath: ''
+      // welcome: {
+      // authName: '欢迎使用',
+      // id: 147,
+      // order: 1,
+      // path: '/welcome'
+      // children: [
+      //   {
+      //     authName: '使用说明',
+      //     id: 124,
+      //     order: 1,
+      //     path: 'welcome',
+      //     children: []
+      //   }
+      // ]
+      // }
     }
   },
   created () {
@@ -86,6 +86,13 @@ export default {
     this.activePath = window.sessionStorage.getItem('activePath')
   },
   methods: {
+    welcomeClick () {
+      // console.log(this.$route.path === '/welcome')
+      this.activePath = ''
+      if (this.$route.path !== '/welcome') {
+        this.$router.push('/welcome')
+      }
+    },
     logout () {
       window.sessionStorage.clear()
       this.$router.push('/login')
@@ -113,59 +120,63 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.hwelcome {
-  color: #fff;
-  font-size: 15px;
-  height: 25px;
-  text-align: center;
-  background: green;
-  span {
-    margin-left: 10px;
-  }
-}
+// .hWelcome {
+//   color: #fff;
+//   font-size: 15px;
+//   height: 25px;
+//   text-align: center;
+//   background: green;
+//   span {
+//     margin-left: 10px;
+//   }
+// }
 .home-container {
   height: 100%;
-}
-.el-header {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 0;
-  background-color: #373d3f;
-  align-items: center;
-  color: #fff;
-  font-size: 20px;
-  > div {
+  .home-welcome {
+    cursor: pointer;
+  }
+
+  .el-header {
     display: flex;
+    justify-content: space-between;
+    padding-left: 0;
+    background-color: #373d3f;
     align-items: center;
-    img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-    }
-    span {
-      margin-left: 15px;
+    color: #fff;
+    font-size: 20px;
+    > div {
+      display: flex;
+      align-items: center;
+      img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+      }
+      span {
+        margin-left: 15px;
+      }
     }
   }
-}
-.el-aside {
-  background-color: #333744;
-  .el-menu {
-    border-right: none;
+  .el-aside {
+    background-color: #333744;
+    .el-menu {
+      border-right: none;
+    }
   }
-}
-.el-main {
-  background-color: #eaedf1;
-}
-.iconfont {
-  padding-right: 10px;
-}
-.toggle-button {
-  background: #4a5064;
-  font-size: 10px;
-  text-align: center;
-  line-height: 24px;
-  color: #fff;
-  letter-spacing: 0.2em;
-  cursor: pointer;
+  .el-main {
+    background-color: #eaedf1;
+  }
+  .iconfont {
+    padding-right: 10px;
+  }
+  .toggle-button {
+    background: #4a5064;
+    font-size: 10px;
+    text-align: center;
+    line-height: 24px;
+    color: #fff;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+  }
 }
 </style>
