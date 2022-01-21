@@ -14,15 +14,15 @@
       <el-row>
         <el-table :data="orderList" border style="width: 100%">
           <el-table-column type="index" label="#"> </el-table-column>
-          <el-table-column prop="order_number" label="订单编号"></el-table-column>
-          <el-table-column prop="order_price" label="订单价格" width="250px"></el-table-column>
-          <el-table-column label="是否支付" width="250px">
+          <el-table-column prop="order_number" label="订单编号" width="250px"></el-table-column>
+          <el-table-column prop="order_price" label="订单价格"></el-table-column>
+          <el-table-column label="是否支付">
             <template v-slot="scope">
               <el-tag type="danger" v-if="scope.row.pay_status === '0'">未付款</el-tag>
               <el-tag type="success" v-else>已付款</el-tag>
             </template>
           </el-table-column>
-          <el-table-column prop="is_send" label="是否发货" width="250px"></el-table-column>
+          <el-table-column prop="is_send" label="是否发货"></el-table-column>
           <el-table-column label="下单时间" width="250px">
             <template v-slot="scope">
               {{ scope.row.create_time | dataFormat }}
@@ -42,15 +42,8 @@
       </el-row>
       <!--      分页区-->
       <el-row>
-        <el-pagination
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-          :current-page="queryInfo.pagenum"
-          :page-sizes="[5, 9, 11, 15]"
-          :page-size="queryInfo.pagesize"
-          layout="total, sizes, prev, pager, next, jumper"
-          :total="total"
-        >
+        <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="queryInfo.pagenum" :page-sizes="[5, 9, 11, 15]"
+                       :page-size="queryInfo.pagesize" layout="total, sizes, prev, pager, next, jumper" :total="total">
         </el-pagination>
       </el-row>
     </el-card>
@@ -89,7 +82,7 @@ export default {
   components: {
     Breadcrumb
   },
-  data() {
+  data () {
     return {
       queryInfo: {
         query: '',
@@ -117,12 +110,12 @@ export default {
       progressInfo: []
     }
   },
-  created() {
+  created () {
     this.getOrderList()
   },
   methods: {
     // 获取订单列表数据
-    async getOrderList() {
+    async getOrderList () {
       const { data: res } = await this.$http.get('orders', {
         params: this.queryInfo
       })
@@ -134,23 +127,23 @@ export default {
       this.total = res.data.total
       console.log(res, this.orderList, this.total)
     },
-    handleSizeChange(newSize) {
+    handleSizeChange (newSize) {
       this.queryInfo.pagesize = newSize
       this.getOrderList()
     },
-    handleCurrentChange(newCurrent) {
+    handleCurrentChange (newCurrent) {
       this.queryInfo.pagenum = newCurrent
       this.getOrderList()
     },
     // 展示修改对话框
-    showBox() {
+    showBox () {
       this.addressDialogVisible = true
     },
     // 关闭对话框清空表达
-    addressDialogClosed() {
+    addressDialogClosed () {
       this.$refs.addressFormRef.resetFields()
     },
-    async showProgressBox() {
+    async showProgressBox () {
       const { data: res } = await this.$http.get('/kuaidi/1106975712662')
       if (res.meta.status !== 200) {
         return this.$message.error('获取物流进度失败！')
